@@ -9,7 +9,7 @@ import (
 	"time"
 	"encoding/json"
 
-	"github.com/jqs7/baidu/requester"
+	"github.com/jqs7/baidulogin/requester"
 	"github.com/jqs7/baidulogin/bdcrypto"
 )
 

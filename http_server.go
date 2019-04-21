@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/GeertJohan/go.rice"
 	"github.com/astaxie/beego/session"
-	"github.com/jqs7/baidu/pcsutil"
+	"github.com/jqs7/baidulogin/pcsutil"
 	"log"
 	"net"
 	"net/http"
