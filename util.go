@@ -3,7 +3,7 @@ package baidulogin
 import (
 	"fmt"
 	"github.com/astaxie/beego/session"
-	"github.com/iikira/BaiduPCS-Go/pcsutil"
+	"github.com/jqs7/baidu/pcsutil"
 	"net/http/cookiejar"
 	"net/url"
 	"regexp"

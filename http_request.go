@@ -3,13 +3,14 @@ package baidulogin
 import (
 	"bytes"
 	"fmt"
-	"github.com/iikira/Baidu-Login/bdcrypto"
-	"github.com/iikira/BaiduPCS-Go/requester"
-	"github.com/json-iterator/go"
 	"net/http/cookiejar"
 	"regexp"
 	"strconv"
 	"time"
+	"encoding/json"
+
+	"github.com/jqs7/baidu/requester"
+	"github.com/jqs7/baidulogin/bdcrypto"
 )
 
 // BaiduClient 记录登录百度所使用的信息
@@ -103,7 +104,7 @@ func (bc *BaiduClient) BaiduLogin(username, password, verifycode, vcodestr strin
 	}
 
 	// 如果 json 解析出错
-	if err = jsoniter.Unmarshal(body, &lj); err != nil {
+	if err = json.Unmarshal(body, &lj); err != nil {
 		lj.ErrInfo.No = "-1"
 		lj.ErrInfo.Msg = "发送登录请求错误: " + err.Error()
 		return lj
@@ -160,7 +161,7 @@ func (bc *BaiduClient) VerifyCode(verifyType, token, vcode, u string) (lj *Login
 	body = bytes.TrimSuffix(body, []byte(")"))
 
 	// 如果 json 解析出错, 直接输出错误信息
-	if err := jsoniter.Unmarshal(body, &lj); err != nil {
+	if err := json.Unmarshal(body, &lj); err != nil {
 		lj.ErrInfo.No = "-2"
 		lj.ErrInfo.Msg = "提交手机/邮箱验证码错误: " + err.Error()
 		return

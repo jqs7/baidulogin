@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/iikira/Baidu-Login"
 	"os"
+
+	"github.com/jqs7/baidulogin"
 )
 
 var (
